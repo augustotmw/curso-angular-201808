@@ -55,3 +55,40 @@ Padrões comumente utilizado:
  - `[major]` - Incrementa quando há quebra de compatibilidade
  - `[minor]` - Incrementa quando há uma nova feature
  - `[patch]` - Incrementa quando há um bugfix
+
+
+
+ ### CLI
+
+ - `ng new` : 
+ - `ng generate {component/pipe/service}` :
+ - `ng serve {--open}` :
+ - `ng build` :
+
+
+
+
+ ## Novo módulo de componente
+
+ Vamos usar como o exemplo, um componente chamado "foto" tem a seguinte estrutura:
+ ```
+ - src
+    |- foto
+        |- foto.component.html
+        |- foto.component.ts
+        |- foto.module.ts
+ ```
+
+
+
+
+
+## Atributos - ways to bind
+
+### Atributos utilizando colchetes - `[attr]`
+
+```html
+<img width="500" class="img-fluid d-block mx-auto" [alt]="titulo" [src]="url">
+```
+
+- Um atributo entre colchetes, como o `[src]` por exemplo, indica a realização de uma associação (__*binding*__) entre este atributo e sua fonte externa de dados. Realiza um bind unidirecional, caminhando da fonte de dados para a view;
