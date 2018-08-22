@@ -13,3 +13,13 @@
 
     max-width: 300px;
 }
+
+main.container {
+    padding-bottom: 30px;
+}
+
+hr {
+    float: none;
+    display: block;
+    clear: both;
+}

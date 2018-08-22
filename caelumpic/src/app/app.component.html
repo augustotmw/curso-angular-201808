@@ -7,8 +7,9 @@
   <foto url="assets/imgs/wolves.jpg" titulo="A Wolf Pack"></foto>
   <foto url="assets/imgs/wolves-howling.jpg" titulo="Wolves howling"></foto>
 
-  <br><br>
+  <hr />
 
-  <span class="terminal">{{ fotos | json }}</span>
+  <foto *ngFor="let foto of fotos" url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+  <span class="terminal">Retorno do servidor: {{ fotos | json }}</span>
 </main>
 
