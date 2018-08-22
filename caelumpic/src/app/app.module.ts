@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FotoModule } from '../foto/foto.module';
+import { FotoAEModule } from '../foto-ae/foto-ae.module';
 import { PainelModule } from './painel/pianel.module';
 import { ListagemComponent } from './listagem/listagem.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -24,6 +25,7 @@ import { Erro404Component } from './erro404/erro404.component';
     BrowserModule,
     HttpClientModule,
     FotoModule,
+    FotoAEModule,
     PainelModule,
     router
   ],
