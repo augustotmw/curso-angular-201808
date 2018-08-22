@@ -1,15 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header class="jumbotron">
+<!-- movido para o componente de listagem
+  
+  <header class="jumbotron">
   <h1 class="text-center">{{ title }}</h1>
   <h2 class="text-center">{{ subtitle }}</h2>
 </header>
 <main class="container">
-  <foto url="assets/imgs/wolves.jpg" titulo="A Wolf Pack"></foto>
-  <foto url="assets/imgs/wolves-howling.jpg" titulo="Wolves howling"></foto>
-
-  <hr />
-
-  <foto *ngFor="let foto of fotos" url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
-  <span class="terminal">Retorno do servidor: {{ fotos | json }}</span>
-</main>
-
+  <div class="row">
+    <painel titulo="A Wolf Pack" class="col-md-4">
+      <foto url="assets/imgs/wolves.jpg" titulo="A Wolf Pack"></foto>
+    </painel>
+    <painel titulo="Wolves howling" class="col-md-4">
+      <foto url="assets/imgs/wolves-howling.jpg" titulo="Wolves howling"></foto>
+    </painel>
+  </div>
+  <div class="row">
+    <painel *ngFor="let foto of fotos" titulo="{{ foto.titulo }}" class="col-md-4">
+      <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+    </painel>
+  </div>
+  <textarea class="terminal">Retorno do servidor: {{ fotos | json }}</textarea>
+</main> -->
