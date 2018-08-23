@@ -4,6 +4,11 @@
   <a routerLink="/cadastro" class="btn btn-info"><span class="glyphicon glyphicon-plus-sign"></span> Cadastre uma nova foto</a>
 </header>
 <main class="container">
+  <div class="row" *ngIf="mensagem">
+    <div class="col-sm-12">
+      <p class="alert alert-success">{{mensagem}}</p>
+    </div>
+  </div>
   <div class="row">
     <painel titulo="A Wolf Pack" class="col-md-4">
       <foto url="assets/imgs/wolves.jpg" titulo="A Wolf Pack"></foto>
@@ -15,6 +20,7 @@
   <div class="row">
     <painel *ngFor="let foto of fotos" titulo="{{ foto.titulo }}" class="col-md-4">
       <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+      <button (click)="remover(foto)" class="btn btn-danger btn-block">Remover</button>
     </painel>
   </div>
   <textarea class="terminal">Retorno do servidor: {{ fotos | json }}</textarea>

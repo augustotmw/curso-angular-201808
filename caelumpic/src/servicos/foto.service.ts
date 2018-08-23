@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class FotoService {
     private cabecalho = { headers: new HttpHeaders({'Content-Type': 'application/json'}) };
 
-    private url = 'http://localhost:3000/v1/fotos';
+    private url = 'http://localhost:3000/v1/fotos/';
 
     constructor(private http:HttpClient){ }
 
@@ -18,5 +18,9 @@ export class FotoService {
     
     cadastrar(foto:FotoComponent):Observable<Object> {
         return this.http.post(this.url, foto, this.cabecalho)
+    }
+
+    deletar(foto:FotoComponent):Observable<Object> {
+        return this.http.delete(this.url + foto._id);
     }
 }
