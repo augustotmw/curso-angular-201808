@@ -1,2 +1,37 @@
-<h1 class="text-center">Cadastro de Fotos</h1>
-<a class="btn" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
+<header class="jumbotron">
+    <h1 class="text-center">Cadastro de Fotos</h1>
+    <a class="btn btn-primary" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
+</header>
+<main class="container">
+    <section class="row">
+        <form class="col-sm-7" (ngSubmit)="salvar()">
+            <div class="form-group">
+                <label for="txtTitulo">Título:</label>
+                <!-- <input type="text" id="txtTitulo" class="form-control" [value]="foto.titulo" (input)="foto.titulo = $event.target.value" /> -->
+                <!-- == -->
+                <input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" />
+            </div>
+            <div class="form-group">
+                <label for="txtUrl">URL:</label>
+                <!-- <input type="text" class="form-control" id="txtUrl" [value]="foto.url" (input)="foto.url = $event.target.value" /> -->
+                <!-- == -->
+                <input type="text" class="form-control" id="txtUrl" name="url" [(ngModel)]="foto.url" />
+            </div>
+            <div class="form-group">
+                <label for="txtDesc">Descrição</label>
+                <!-- <textarea name="txtDesc" id="txtDesc" cols="30" rows="10" class="form-control" [value]="foto.desc" (input)="foto.desc = $event.target.value"></textarea> -->
+                <!-- == -->
+                <textarea name="txtDesc" id="txtDesc" name="descricao" cols="30" rows="10" class="form-control" [(ngModel)]="foto.descricao"></textarea>
+            </div>
+            <a class="btn btn-danger" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+        <aside class="col-sm-5">
+            <!-- preview da foto -->
+            <h3 class="text-center">Preview</h3>
+            <painel titulo="{{ foto.titulo }}" class="col-md-4">
+                <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+            </painel>
+        </aside>
+    </section>
+</main>

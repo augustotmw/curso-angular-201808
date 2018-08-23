@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -27,7 +28,8 @@ import { Erro404Component } from './erro404/erro404.component';
     FotoModule,
     FotoAEModule,
     PainelModule,
-    router
+    router,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

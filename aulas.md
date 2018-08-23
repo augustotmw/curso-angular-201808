@@ -92,3 +92,31 @@ Padrões comumente utilizado:
 ```
 
 - Um atributo entre colchetes, como o `[src]` por exemplo, indica a realização de uma associação (__*binding*__) entre este atributo e sua fonte externa de dados. Realiza um bind unidirecional, caminhando da fonte de dados para a view;
+
+
+
+### Atributos utilizando parenteses - `(attr)`
+
+```html
+
+```
+- 
+
+
+### Atributos utilizando parenteses+colchetes - `[(attr)]`
+
+```html
+
+```
+- 
+
+
+
+
+## Paralelos do REST
+
+```
+OP:     C(reate)    R(etrieve)      U(pdate)        D(elete)
+        |           |               |               |
+Http:   POST        GET             PUT             DELETE
+```
