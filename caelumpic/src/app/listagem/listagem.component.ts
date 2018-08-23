@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { FotoService } from '../../servicos/foto.service';
 
 @Component({
   selector: 'app-listagem',
@@ -11,9 +11,15 @@ export class ListagemComponent  {
   subtitle = 'A Photo Collection';
 
   fotos;
-  
-  constructor(http: HttpClient) {
-    http.get('http://localhost:3000/v1/fotos').subscribe(fotosApi => this.fotos = fotosApi, erro => console.log(erro));
+
+  constructor(private servico: FotoService) {
+    servico.listar().subscribe(fotosApi => this.fotos = fotosApi, erro => console.log(erro));
   }
+
+  // logica movida para foto.service.ts:
+  
+  // constructor(http: HttpClient) {
+  //   http.get('http://localhost:3000/v1/fotos').subscribe(fotosApi => this.fotos = fotosApi, erro => console.log(erro));
+  // }
 
 }

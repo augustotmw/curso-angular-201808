@@ -13,6 +13,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 
 import { router } from './app.routes';
 import { Erro404Component } from './erro404/erro404.component';
+import { FotoService } from '../servicos/foto.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { Erro404Component } from './erro404/erro404.component';
     router,
     FormsModule
   ],
-  providers: [],
+  providers: [FotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
