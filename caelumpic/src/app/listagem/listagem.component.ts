@@ -27,6 +27,7 @@ export class ListagemComponent  {
       console.log(`Foto ${foto.titulo} apagada com sucesso!`);
       this.mensagem = `Foto ${foto.titulo} apagada com sucesso!`;
       this.fotos = this.fotos.filter(f=>f._id !== foto._id);
+      scrollTo(0,0);
 
       setTimeout(()=>this.mensagem='', 15000);
     }, erro=>console.log(erro));

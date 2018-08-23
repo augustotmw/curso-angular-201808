@@ -23,4 +23,12 @@ export class FotoService {
     deletar(foto:FotoComponent):Observable<Object> {
         return this.http.delete(this.url + foto._id);
     }
+
+    recuperar(id):Observable<FotoComponent> {
+        return this.http.get<FotoComponent>(this.url+id);
+    }
+
+    alterar(foto:FotoComponent):Observable<Object> {
+        return this.http.put(this.url+foto._id, foto, this.cabecalho);
+    }
 }

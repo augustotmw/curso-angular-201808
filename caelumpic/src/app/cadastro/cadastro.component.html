@@ -3,6 +3,11 @@
     <a class="btn btn-primary" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
 </header>
 <main class="container">
+    <div class="row" *ngIf="mensagem">
+        <div class="col-sm-12">
+            <p class="alert alert-success">{{mensagem}}</p>
+        </div>
+    </div>
     <section class="row">
         <form class="col-sm-7" (ngSubmit)="salvar()">
             <div class="form-group">
@@ -24,9 +29,9 @@
                 <textarea name="txtDesc" id="txtDesc" name="descricao" cols="30" rows="10" class="form-control" [(ngModel)]="foto.descricao"></textarea>
             </div>
             <a class="btn btn-danger" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary">{{ foto._id ? 'Editar' : 'Salvar'}}</button>
         </form>
-        <aside class="col-sm-5">
+        <aside class="col-sm-5" *ngIf="foto.url">
             <!-- preview da foto -->
             <h3 class="text-center">Preview</h3>
             <painel titulo="{{ foto.titulo }}" class="col-md-4">

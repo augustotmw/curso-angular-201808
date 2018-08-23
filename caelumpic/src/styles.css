@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/* @font-face {
+    font-family: 'FontAwesome';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0');
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), 
+    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), 
+    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), 
+    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), 
+    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  } */
 
 .terminal {
     color: white;
@@ -14,10 +25,38 @@
     overflow: hidden;
 
     max-width: auto;
-    min-height: 100px;
+    min-height: 50px;
 }
 
 main.container {
     padding-bottom: 30px;
 }
 
+.card {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.card .card-body {
+    padding-bottom: 30px;
+}
+
+.editar,
+.remover {
+    position: absolute;
+    right: 0;
+    width: auto !important;
+    opacity: 0.5;
+    padding: 3px 5px !important;
+    font-size: 7px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.editar {
+    bottom: 0;
+}
+
+.remover {
+    top: 0;
+}

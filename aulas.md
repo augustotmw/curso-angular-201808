@@ -95,12 +95,12 @@ Padrões comumente utilizado:
 
 
 
-### Atributos utilizando parenteses - `(attr)`
+### Atributos utilizando parenteses - `(attr-event)`
 
 ```html
 
 ```
-- 
+- Utilizado somente para eventos;
 
 
 ### Atributos utilizando parenteses+colchetes - `[(attr)]`
@@ -108,15 +108,13 @@ Padrões comumente utilizado:
 ```html
 
 ```
-- 
+- two-way data-bind
 
 
 
 
 ## Paralelos do REST
 
-```
-OP:     C(reate)    R(etrieve)      U(pdate)        D(elete)
-        |           |               |               |
-Http:   POST        GET             PUT             DELETE
-```
+| OP: | C(reate) | R(etrieve) | U(pdate) | D(elete) |
+| --- | --- | --- | --- | --- |
+| Http: | POST | GET | PUT | DELETE
