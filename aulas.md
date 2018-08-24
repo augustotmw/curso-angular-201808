@@ -113,8 +113,8 @@ Padrões comumente utilizado:
 
 
 
-## Paralelos do REST
+## Paralelos do CRUD vs REST
 
 | OP: | C(reate) | R(etrieve) | U(pdate) | D(elete) |
 | --- | --- | --- | --- | --- |
-| Http: | POST | GET | PUT | DELETE
+| Http: | POST | GET | PUT | DELETE |
