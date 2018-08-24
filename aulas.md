@@ -98,7 +98,7 @@ Padrões comumente utilizado:
 ### Atributos utilizando parenteses - `(attr-event)`
 
 ```html
-
+<form class="col-sm-7" (ngSubmit)="salvar()"></form>
 ```
 - Utilizado somente para eventos;
 
@@ -106,11 +106,24 @@ Padrões comumente utilizado:
 ### Atributos utilizando parenteses+colchetes - `[(attr)]`
 
 ```html
-
+<input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" />
 ```
 - two-way data-bind
 
+#### two-way data-bind feito com `[attr]` e `(attr)`
+```html
+<input type="text" id="txtTitulo" class="form-control" [value]="foto.titulo" (input)="foto.titulo = $event.target.value" />
+```
 
+
+### Atributos utilizando cerquilha - `#attr`
+
+```html
+<input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" required #titulo="ngModel" />
+
+```
+
+- Cria uma "variável de tela" uma referência na tela ao elemento
 
 
 ## Paralelos do CRUD vs REST
@@ -118,3 +131,38 @@ Padrões comumente utilizado:
 | OP: | C(reate) | R(etrieve) | U(pdate) | D(elete) |
 | --- | --- | --- | --- | --- |
 | Http: | POST | GET | PUT | DELETE |
+
+
+## Desestruturação de objetos JS:
+
+#### Object
+
+```javascript
+//es6
+
+var obj1 = {...obj2, ...obj3};
+
+//transpila para
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var obj1 = _extends({}, obj2, obj3);
+```
+
+#### Array
+
+```javascript
+//es6
+
+let l1 = [1,2,3];
+let l2 = [5,6,7];
+
+let l3 = [...l1,4,...l2]
+
+//transpila para
+
+var l1 = [1, 2, 3];
+var l2 = [5, 6, 7];
+
+var l3 = [].concat(l1, [4], l2);
+```

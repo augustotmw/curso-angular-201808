@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -32,7 +32,8 @@ import { MensagemComponent } from './mensagem/mensagem.component';
     FotoAEModule,
     PainelModule,
     router,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FotoService],
   bootstrap: [AppComponent]

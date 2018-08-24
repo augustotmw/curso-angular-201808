@@ -9,33 +9,53 @@
         </div>
     </div>
     <section class="row">
-        <form class="col-sm-7" (ngSubmit)="salvar()">
+        <!-- tag form para validacao via template -->
+        <!-- <form class="col-sm-7" (ngSubmit)="salvar()" #formCadastro="ngForm">  -->
+        <form class="col-sm-7" (ngSubmit)="salvar()" [formGroup]="formCadastro"> 
             <div class="form-group">
-                <label for="txtTitulo">Título:</label>
+                <!-- Maneiras de vincular as tags as variaveis -->
                 <!-- <input type="text" id="txtTitulo" class="form-control" [value]="foto.titulo" (input)="foto.titulo = $event.target.value" /> -->
                 <!-- == -->
-                <input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" />
+                <!-- <input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" /> -->
+                
+                <!-- validação via template -->
+                <!-- <label for="txtTitulo">Título<span *ngIf="titulo.pristine" style="color:red;" title="Titulo obrigatório">&nbsp;*&nbsp;</span>:</label> -->
+                <!-- <input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" required #titulo="ngModel" /> -->
+                <!-- <span class="form-control alert-danger" *ngIf="titulo.invalid && titulo.dirty">Por favor, adicione o título.</span> -->
+                <!-- validação via model -->
+                <label for="txtTitulo">Título<span *ngIf="formCadastro.controls.titulo.pristine" style="color:red;" title="Titulo obrigatório">&nbsp;*&nbsp;</span>:</label>
+                <!-- <input type="text" id="txtTitulo" name="titulo" class="form-control" [(ngModel)]="foto.titulo" formControlName="titulo" /> -->
+                <!-- a tag comentada acima enviará um warning (até o Angular v6) pois não se deve mais utilizar o ngModel com o formControlName, pois se ambos tiverem o nome de variável iguais (como acima) pode gerar uma confusão de atribuição de valores iniciais no model -->
+                <input type="text" id="txtTitulo" name="titulo" class="form-control" formControlName="titulo" />
+                <div *ngIf="formCadastro.controls.titulo.invalid && formCadastro.controls.titulo.dirty">
+                    <span class="form-control alert-danger" *ngIf="formCadastro.controls.titulo.errors.required">Por favor, adicione o título.</span>
+                    <span class="form-control alert-danger" *ngIf="formCadastro.controls.titulo.errors.minlength">O título deve conter no mínimo 3 caracteres.</span>
+                </div>
+
             </div>
             <div class="form-group">
-                <label for="txtUrl">URL:</label>
-                <!-- <input type="text" class="form-control" id="txtUrl" [value]="foto.url" (input)="foto.url = $event.target.value" /> -->
-                <!-- == -->
-                <input type="text" class="form-control" id="txtUrl" name="url" [(ngModel)]="foto.url" />
+                
+                <label for="txtUrl">URL<span *ngIf="formCadastro.controls.url.pristine" style="color:red;" title="URL obrigatória">&nbsp;*&nbsp;</span>:</label>
+                <input type="text" class="form-control" id="txtUrl" name="url" formControlName="url" />
+                <div *ngIf="formCadastro.controls.url.invalid && formCadastro.controls.url.dirty">
+                    <span class="form-control alert-danger">Por favor, adicione a url.</span>
+                </div>
             </div>
             <div class="form-group">
                 <label for="txtDesc">Descrição</label>
-                <!-- <textarea name="txtDesc" id="txtDesc" cols="30" rows="10" class="form-control" [value]="foto.desc" (input)="foto.desc = $event.target.value"></textarea> -->
-                <!-- == -->
-                <textarea name="txtDesc" id="txtDesc" name="descricao" cols="30" rows="10" class="form-control" [(ngModel)]="foto.descricao"></textarea>
+                <textarea name="txtDesc" id="txtDesc" name="descricao" cols="30" rows="10" class="form-control" formControlName="descricao"></textarea>
             </div>
             <a class="btn btn-danger" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
-            <button type="submit" class="btn btn-primary">{{ foto._id ? 'Editar' : 'Salvar'}}</button>
+            <!-- validação via template -->
+            <!-- <button type="submit" class="btn btn-primary" [disabled]="formCadastro.form.invalid">{{ foto._id ? 'Editar' : 'Salvar'}}</button> -->
+            <!-- validação via model -->
+            <button type="submit" class="btn btn-primary" [disabled]="formCadastro.invalid">{{ foto._id ? 'Editar' : 'Salvar'}}</button>
         </form>
         <aside class="col-sm-5">
             <!-- preview da foto -->
             <h3 class="text-center">Preview</h3>
-            <painel titulo="{{ foto.titulo }}" class="col-md-4">
-                <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+            <painel titulo="{{ formCadastro.controls.titulo.value }}" class="col-md-4">
+                <foto url="{{ formCadastro.controls.url.value }}" titulo="{{ formCadastro.controls.titulo.value }}"></foto>
             </painel>
         </aside>
     </section>

@@ -25,21 +25,21 @@ export class FotoService {
     cadastrar(foto:FotoComponent):Observable<MensagemServico> {
         return this.http.post(this.url, foto, this.cabecalho).pipe(
             // map(()=>({texto:`Foto ${foto.titulo} adicionada com sucesso!`, tipo: 'sucesso'}))
-            map(()=> new MensagemServico(`Foto ${foto.titulo} adicionada com sucesso!`))
+            map(()=> new MensagemServico(`Foto "${foto.titulo}" adicionada com sucesso!`))
         );
     }
 
     deletar(foto:FotoComponent):Observable<MensagemServico> {
         return this.http.delete(this.url + foto._id).pipe(
             // map(()=>({texto:`Foto ${foto.titulo} removida com sucesso!`, tipo: 'sucesso'}))
-            map(()=> new MensagemServico(`Foto ${foto.titulo} removida com sucesso!`))
+            map(()=> new MensagemServico(`Foto "${foto.titulo}" removida com sucesso!`))
         );
     }
 
     alterar(foto:FotoComponent):Observable<MensagemServico> {
         return this.http.put(this.url+foto._id, foto, this.cabecalho).pipe(
             // map(()=>({texto:`Foto ${foto.titulo} atualizada com sucesso!`, tipo: 'sucesso'}))
-            map(()=> new MensagemServico(`Foto ${foto.titulo} atualizada com sucesso!`))
+            map(()=> new MensagemServico(`Foto "${foto.titulo}" atualizada com sucesso!`))
         );
     }
 }
