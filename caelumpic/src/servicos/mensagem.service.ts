@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MensagemServico {
-    private mensagem:String;
+    private _mensagem:String;
 
     constructor(mensagem:String) {
-        this.mensagem = mensagem;
+        this._mensagem = mensagem;
     }
 
     public get():String {
-        return this.mensagem;
+        return this._mensagem;
     }
 }
