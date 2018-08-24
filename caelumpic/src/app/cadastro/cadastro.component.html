@@ -31,7 +31,7 @@
             <a class="btn btn-danger" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</a>
             <button type="submit" class="btn btn-primary">{{ foto._id ? 'Editar' : 'Salvar'}}</button>
         </form>
-        <aside class="col-sm-5" *ngIf="foto.url">
+        <aside class="col-sm-5">
             <!-- preview da foto -->
             <h3 class="text-center">Preview</h3>
             <painel titulo="{{ foto.titulo }}" class="col-md-4">

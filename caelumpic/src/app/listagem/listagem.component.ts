@@ -23,9 +23,10 @@ export class ListagemComponent  {
     console.log('removendo...');
 
     this.servico.deletar(foto)
-    .subscribe(()=>{
-      console.log(`Foto ${foto.titulo} apagada com sucesso!`);
-      this.mensagem = `Foto ${foto.titulo} apagada com sucesso!`;
+    .subscribe((mensagemServico)=>{
+      // this.mensagem = `Foto ${foto.titulo} apagada com sucesso!`;
+      // this.mensagem = mensagemServico.mensagem; //propriedade privada "mensagem" não é mais visível no "mensagemServico"
+      this.mensagem = mensagemServico.get();
       this.fotos = this.fotos.filter(f=>f._id !== foto._id);
       scrollTo(0,0);
 

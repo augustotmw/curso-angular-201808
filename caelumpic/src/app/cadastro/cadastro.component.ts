@@ -47,8 +47,11 @@ export class CadastroComponent {
 
     if(this.foto._id) {
 
-      this.servico.alterar(this.foto).subscribe(()=> {
-        this.mensagem = `Foto ${this.foto.titulo} editada com sucesso!`;
+      this.servico.alterar(this.foto).subscribe((mensagemServico) => {
+        // this.mensagem = `Foto ${this.foto.titulo} editada com sucesso!`;
+        // mensagemServico.mensagem = 'Mensagem adulterada'; //erro de propriedade privada à classe
+        // this.mensagem = mensagemServico.mensagem; //propriedade privada "mensagem" não é mais visível no "mensagemServico"
+        this.mensagem = mensagemServico.get();
         scrollTo(0,0);
         setTimeout(()=>{
           this.mensagem='';
@@ -63,9 +66,11 @@ export class CadastroComponent {
     } else {
 
       this.servico.cadastrar(this.foto)
-      .subscribe(()=> {
+      .subscribe((mensagemServico)=> {
           this.foto = new FotoComponent();
-          this.mensagem = `Foto ${this.foto.titulo} adicionada com sucesso! Redirecionando para a tela de listagem...`;
+          // this.mensagem = `Foto ${this.foto.titulo} adicionada com sucesso! Redirecionando para a tela de listagem...`;
+          // this.mensagem = mensagemServico.mensagem; //propriedade privada "mensagem" não é mais visível no "mensagemServico"
+        this.mensagem = mensagemServico.get();
           scrollTo(0,0);
           setTimeout(()=>{
             this.mensagem='';
