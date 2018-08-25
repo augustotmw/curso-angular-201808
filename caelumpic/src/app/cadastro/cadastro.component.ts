@@ -70,14 +70,16 @@ export class CadastroComponent {
   /** utilizando (ngSubmit)="salvar()" no <form> */
 
   salvar() {
-    console.log('foto antes: ', this.foto);
+    console.log('foto antes: ');
+    console.table(this.foto);
 
     //this.foto = this.formCadastro.value; //perde a referencia do this.foto._id
     // logo devemos atribuir assim:
 
     this.foto = {...this.foto, ...this.formCadastro.value};
 
-    console.log('foto depois: ', this.foto);
+    console.log('foto depois: ');
+    console.table(this.foto);
 
     if(this.foto._id) {
 

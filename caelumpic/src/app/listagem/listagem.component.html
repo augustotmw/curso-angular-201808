@@ -1,7 +1,13 @@
 <header class="jumbotron">
   <h1 class="text-center">{{ title }}</h1>
   <h2 class="text-center">{{ subtitle }}</h2>
-  <a routerLink="/cadastro" class="btn btn-info"><span class="glyphicon glyphicon-plus-sign"></span> Cadastre uma nova foto</a>
+  <form class="input-group">
+    <span class="input-group-prepend">
+      <a routerLink="/cadastro" class="btn btn-info"><span class="glyphicon glyphicon-plus-sign"></span> Cadastre uma nova foto</a>
+    </span>
+    <input name="filtro" id="filtro" [(ngModel)]="filtro" type="search" class="form-control" placeholder="Filtrar pelo título da foto" />
+  </form>
+  
 </header>
 <main class="container">
   <div class="row" *ngIf="mensagem">
@@ -18,7 +24,7 @@
     </painel>
   </div>
   <div class="row">
-    <painel *ngFor="let foto of fotos" titulo="{{ foto.titulo }}" class="col-sm-4">
+    <painel *ngFor="let foto of fotos | filtroTitulo:filtro" titulo="{{ foto.titulo | uppercase }}" class="col-sm-4">
       <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
       <button (click)="remover(foto)" class="btn btn-danger btn-block remover">X</button>
       <a [routerLink]="['/cadastro', foto._id]" class="btn btn-primary editar">editar</a>

@@ -11,7 +11,7 @@ export class ListagemComponent  {
   title = 'Caelum Pic';
   subtitle = 'A Photo Collection';
 
-  fotos;
+  fotos:FotoComponent[] = [];
 
   mensagem:String;
 
