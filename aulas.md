@@ -171,4 +171,7 @@ var l3 = [].concat(l1, [4], l2);
 
 
 
-## Pipes
+## Shadow DOM
+
+- Técnica para tentativa de isolamento de componentes e seus assets na view sem um influenciar o outro;
+- Ainda não está disponível na maioria dos navegadores;
